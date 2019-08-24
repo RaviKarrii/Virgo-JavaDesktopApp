@@ -23,7 +23,13 @@ public class input {
         Save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                VirgoApp va = new VirgoApp();
+                JFrame Frame2 = new JFrame("Virgo");
+                Frame2.setContentPane(va.Main);
+                //Frame2.pack();
+                Frame2.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                //Frame2.setUndecorated(true);
+                Frame2.setVisible(true);
             }
         });
         generateButton.addActionListener(new ActionListener() {
