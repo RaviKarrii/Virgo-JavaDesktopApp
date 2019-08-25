@@ -6,30 +6,32 @@ import java.awt.event.ActionListener;
 
 public class input {
 
-    private JTextField Name;
-    private JSpinner Year;
-    private JSpinner Month;
-    private JSpinner Date;
-    private JSpinner HH;
-    private JSpinner MM;
+    public JTextField Name;
+    public JSpinner Year;
+    public JSpinner Month;
+    public JSpinner Date;
+    public JSpinner HH;
+    public JSpinner MM;
     private JTextField City;
     private JButton Save;
-    private JSpinner SS;
-    private JPanel Main;
+    public JSpinner SS;
+    //public Boolean flag;
+    public JPanel Main;
     private JButton generateButton;
     public int Y,M,D,Hh,Mm,Ss;
 
+
     public input() {
+        //flag = true;
         Save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VirgoApp va = new VirgoApp();
-                JFrame Frame2 = new JFrame("Virgo");
-                Frame2.setContentPane(va.Main);
-                //Frame2.pack();
-                Frame2.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                //Frame2.setUndecorated(true);
-                Frame2.setVisible(true);
+                //VirgoApp va = new VirgoApp();
+                //va.TASingle.append("Ravi");
+                FileManager Fm = new FileManager();
+                Fm.WriteFile("HoroData.txt",Name.getText()+";"+Year.getValue().toString()+";"+Month.getValue().toString()+";"+Date.getValue().toString()+";"+HH.getValue().toString()+";"+MM.getValue().toString()+";"+SS.getValue().toString()+";"+City.getText());
+
+
             }
         });
         generateButton.addActionListener(new ActionListener() {
@@ -48,11 +50,12 @@ public class input {
                 Frame2.setContentPane(chart.Main);
                 Frame2.pack();
                 Frame2.setVisible(true);
+                //flag = false;
             }
         });
     }
 
-    public static void main(String[] args) {
+    String start(VirgoApp va) {
         JFrame Frame = new JFrame("input");
         input in = new input();
         in.HH.setValue(12);
@@ -60,10 +63,13 @@ public class input {
         in.Month.setValue(9);
         in.Date.setValue(16);
         in.MM.setValue(25);
+        //ModelClass abc  =  new ModelClass("shikher", "mshikher","mishra" );
         Frame.setContentPane(in.Main);
-        Frame.setDefaultCloseOperation(Frame.EXIT_ON_CLOSE);
+        //Frame.setDefaultCloseOperation(Frame.EXIT_ON_CLOSE);
         Frame.pack();
         Frame.setVisible(true);
 
+        va.TASingle.append("Ravi");
+        return "Ravi";
     }
 }

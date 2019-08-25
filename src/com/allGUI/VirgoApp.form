@@ -34,7 +34,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <grid id="11b21" binding="Horoscope" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                  <grid id="11b21" binding="Horoscope" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
                       <tabbedpane title="Horoscope"/>
@@ -42,32 +42,38 @@
                     <properties/>
                     <border type="none"/>
                     <children>
-                      <splitpane id="7f8b3">
+                      <component id="85ba6" class="javax.swing.JButton" binding="ChartBut">
                         <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                            <preferred-size width="200" height="200"/>
+                          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Add Person"/>
+                        </properties>
+                      </component>
+                      <component id="9b7fb" class="javax.swing.JList" binding="list1" default-binding="true">
+                        <constraints>
+                          <grid row="0" column="2" row-span="2" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="50"/>
                           </grid>
                         </constraints>
                         <properties/>
-                        <border type="none"/>
-                        <children>
-                          <grid id="987ce" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                            <margin top="0" left="0" bottom="0" right="0"/>
-                            <constraints>
-                              <splitpane position="left"/>
-                            </constraints>
-                            <properties/>
-                            <border type="none"/>
-                            <children/>
-                          </grid>
-                          <component id="ef065" class="javax.swing.JList" binding="list2" default-binding="true">
-                            <constraints>
-                              <splitpane position="right"/>
-                            </constraints>
-                            <properties/>
-                          </component>
-                        </children>
-                      </splitpane>
+                      </component>
+                      <component id="61713" class="javax.swing.JButton" binding="Generate">
+                        <constraints>
+                          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Generate"/>
+                        </properties>
+                      </component>
+                      <component id="c44da" class="javax.swing.JLabel" binding="HName">
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="."/>
+                        </properties>
+                      </component>
                     </children>
                   </grid>
                   <grid id="6ac25" binding="CompIN" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -77,34 +83,7 @@
                     </constraints>
                     <properties/>
                     <border type="none"/>
-                    <children>
-                      <splitpane id="37fe6">
-                        <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                            <preferred-size width="200" height="200"/>
-                          </grid>
-                        </constraints>
-                        <properties/>
-                        <border type="none"/>
-                        <children>
-                          <component id="6d6ee" class="javax.swing.JList" binding="list1" default-binding="true">
-                            <constraints>
-                              <splitpane position="right"/>
-                            </constraints>
-                            <properties/>
-                          </component>
-                          <grid id="d5a64" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                            <margin top="0" left="0" bottom="0" right="0"/>
-                            <constraints>
-                              <splitpane position="left"/>
-                            </constraints>
-                            <properties/>
-                            <border type="none"/>
-                            <children/>
-                          </grid>
-                        </children>
-                      </splitpane>
-                    </children>
+                    <children/>
                   </grid>
                 </children>
               </tabbedpane>
@@ -119,8 +98,7 @@
             <border type="none"/>
             <children/>
           </grid>
-          <grid id="46520" binding="BirthChart" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          <grid id="46520" binding="BirthChart" layout-manager="BorderLayout" hgap="0" vgap="0">
             <constraints>
               <tabbedpane title="Birth Chart"/>
             </constraints>
