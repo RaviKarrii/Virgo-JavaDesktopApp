@@ -1,6 +1,7 @@
 package com.allGUI;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,9 +26,9 @@ public class VirgoApp {
     private JPanel Horoscope;
     private JPanel CompIN;
     private JButton ChartBut;
-    private JList list1;
     private JButton Generate;
-    private JLabel HName;
+    private JEditorPane DetailsEditor;
+    private JTextArea textArea1;
     public JTextArea TASingle;
 
 
@@ -54,6 +55,20 @@ public class VirgoApp {
                 //waiter(input);
             }
         });
+        Generate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FileManager Fm = new FileManager();
+                String ss = Fm.ReadFile("HoroData.txt");
+                VirgoApp virgo = new VirgoApp();
+                virgo.DetailsEditor.setContentType("text/html");
+                String data = "<html>";
+                data+="<center><table><tr><td>cell1</td><td>cell2</td></tr></table><center>";
+                data+=ss;
+                data+="</html>";
+                virgo.DetailsEditor.setText(data);
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -69,6 +84,10 @@ public class VirgoApp {
         Frame.setDefaultCloseOperation(Frame.EXIT_ON_CLOSE);
 
         Frame.setVisible(true);
-
+        virgo.DetailsEditor.setContentType("text/html");
+        String data = "<html>";
+        data+="<center><table><tr><td>cell1</td><td>cell2</td></tr></table><center>";
+        data+="</html>";
+        virgo.DetailsEditor.setText(data);
     }
 }

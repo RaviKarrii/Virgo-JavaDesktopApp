@@ -18,6 +18,8 @@ public class input {
     //public Boolean flag;
     public JPanel Main;
     private JButton generateButton;
+    private JTextField Lon;
+    private JTextField Lat;
     public int Y,M,D,Hh,Mm,Ss;
 
 
@@ -29,7 +31,7 @@ public class input {
                 //VirgoApp va = new VirgoApp();
                 //va.TASingle.append("Ravi");
                 FileManager Fm = new FileManager();
-                Fm.WriteFile("HoroData.txt",Name.getText()+";"+Year.getValue().toString()+";"+Month.getValue().toString()+";"+Date.getValue().toString()+";"+HH.getValue().toString()+";"+MM.getValue().toString()+";"+SS.getValue().toString()+";"+City.getText());
+                Fm.WriteFile("HoroData.txt",Name.getText()+";"+Year.getValue().toString()+";"+Month.getValue().toString()+";"+Date.getValue().toString()+";"+HH.getValue().toString()+";"+MM.getValue().toString()+";"+SS.getValue().toString()+";"+Lon.getText()+";"+Lat.getText());
 
 
             }

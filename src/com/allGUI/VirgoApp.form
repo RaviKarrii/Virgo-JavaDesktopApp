@@ -44,19 +44,11 @@
                     <children>
                       <component id="85ba6" class="javax.swing.JButton" binding="ChartBut">
                         <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                          <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
                           <text value="Add Person"/>
                         </properties>
-                      </component>
-                      <component id="9b7fb" class="javax.swing.JList" binding="list1" default-binding="true">
-                        <constraints>
-                          <grid row="0" column="2" row-span="2" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                            <preferred-size width="150" height="50"/>
-                          </grid>
-                        </constraints>
-                        <properties/>
                       </component>
                       <component id="61713" class="javax.swing.JButton" binding="Generate">
                         <constraints>
@@ -64,14 +56,6 @@
                         </constraints>
                         <properties>
                           <text value="Generate"/>
-                        </properties>
-                      </component>
-                      <component id="c44da" class="javax.swing.JLabel" binding="HName">
-                        <constraints>
-                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <text value="."/>
                         </properties>
                       </component>
                     </children>
@@ -96,7 +80,16 @@
             </constraints>
             <properties/>
             <border type="none"/>
-            <children/>
+            <children>
+              <component id="99514" class="javax.swing.JEditorPane" binding="DetailsEditor">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="50"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+            </children>
           </grid>
           <grid id="46520" binding="BirthChart" layout-manager="BorderLayout" hgap="0" vgap="0">
             <constraints>
