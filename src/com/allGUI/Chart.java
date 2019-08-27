@@ -36,7 +36,7 @@ public class Chart {
     private JPanel Chart;
     private JTextArea Center;
     public String city;
-    int[] planets = { SweConst.SE_SUN,
+    public int[] planets = { SweConst.SE_SUN,
             SweConst.SE_MOON,
             SweConst.SE_MARS,
             SweConst.SE_MERCURY,
@@ -44,7 +44,7 @@ public class Chart {
             SweConst.SE_VENUS,
             SweConst.SE_SATURN,
             SweConst.SE_MEAN_NODE };	// Some systems prefer SE_MEAN_NODE
-    String plNams[] = {"Sun","Moon","Mars","Mercury","Jupiter","Venus","Saturn","","","","Rahu"};
+    public String plNams[] = {"Sun","Moon","Mars","Mercury","Jupiter","Venus","Saturn","","","","Rahu"};
     int flags = SweConst.SEFLG_SWIEPH | SweConst.SEFLG_SPEED  | SweConst.SEFLG_SIDEREAL;
     //boolean retrograde = false;
     public void PlacePlanet(String raasi,String planet){

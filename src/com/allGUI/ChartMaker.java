@@ -5,7 +5,7 @@ import swisseph.SweDate;
 import swisseph.SwissEph;
 
 public class ChartMaker {
-    int[] planets = { SweConst.SE_SUN,
+    public int[] planets = { SweConst.SE_SUN,
             SweConst.SE_MOON,
             SweConst.SE_MARS,
             SweConst.SE_MERCURY,
@@ -14,6 +14,7 @@ public class ChartMaker {
             SweConst.SE_SATURN,
             SweConst.SE_MEAN_NODE };	// Some systems prefer SE_MEAN_NODE
     String plNams[] = {"Sun","Moon","Mars","Mercury","Jupiter","Venus","Saturn","","","","Rahu"};
+    public String plNams_tel[] = {"సన్", "మూన్", "మార్స్", "మెర్క్యురీ", "బృహస్పతి", "శుక్రుడు", "సాటర్న్", "", "", "", "రాహు"};
     int flags = SweConst.SEFLG_SWIEPH | SweConst.SEFLG_SPEED  | SweConst.SEFLG_SIDEREAL;
     //boolean retrograde = false;
 
@@ -95,5 +96,6 @@ public class ChartMaker {
         return res;
 
     }
+
 
 }

@@ -22,8 +22,9 @@ public class input {
     private JTextField Lat;
     public int Y,M,D,Hh,Mm,Ss;
 
-
+    JFrame Frame = new JFrame("input");
     public input() {
+
         //flag = true;
         Save.addActionListener(new ActionListener() {
             @Override
@@ -32,33 +33,15 @@ public class input {
                 //va.TASingle.append("Ravi");
                 FileManager Fm = new FileManager();
                 Fm.WriteFile("HoroData.txt",Name.getText()+";"+Year.getValue().toString()+";"+Month.getValue().toString()+";"+Date.getValue().toString()+";"+HH.getValue().toString()+";"+MM.getValue().toString()+";"+SS.getValue().toString()+";"+Lon.getText()+";"+Lat.getText());
-
+                Frame.setVisible(false);
+                Frame.dispose();
 
             }
         });
-        generateButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame Frame2 = new JFrame("Chart");
-                D = (Integer)Date.getValue();
-                Y = (Integer)Year.getValue();
-                M = (Integer)Month.getValue();
-                Hh = (Integer)HH.getValue();
-                Mm = (Integer)MM.getValue();
-                Ss = (Integer)SS.getValue();
-                //System.out.println(Mm);
-                Chart chart = new Chart(Name.getText(),Y,M,D,Hh,Mm,Ss);
-                chart.start();
-                Frame2.setContentPane(chart.Main);
-                Frame2.pack();
-                Frame2.setVisible(true);
-                //flag = false;
-            }
-        });
+
     }
 
     String start(VirgoApp va) {
-        JFrame Frame = new JFrame("input");
         input in = new input();
         in.HH.setValue(12);
         in.Year.setValue(1993);
