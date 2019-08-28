@@ -24,7 +24,6 @@ public class VirgoApp {
     private JButton Generate;
     public JEditorPane ChartTableEditor;
     private JEditorPane DetailsEditor;
-    private JEditorPane editorPane1;
     private JTextField NameN;
     private JLabel NameNN;
     private JLabel BDAYN;
@@ -38,7 +37,18 @@ public class VirgoApp {
     private JTextField LONN;
     private JTextField LATN;
     private JPanel SDetails;
-    private JTextArea textArea1;
+    private JTextArea Pisces;
+    private JTextArea Aries;
+    private JTextArea Tarus;
+    private JTextArea Gemini;
+    private JTextArea Saggittarius;
+    private JTextArea Aquarius;
+    private JTextArea Capricorn;
+    private JTextArea Scorpio;
+    private JTextArea Libra;
+    private JTextArea Virgo;
+    private JTextArea Cancer;
+    private JTextArea Leo;
     public JTextArea TASingle;
 
 
@@ -62,15 +72,21 @@ public class VirgoApp {
                     System.out.println(calDet.SRtime());
                 double time2 = cm.decimal(Integer.parseInt(time[0]),Integer.parseInt(time[1]),Integer.parseInt(time[2]));
                     SweDate sd=new SweDate(Integer.parseInt(date[2]),Integer.parseInt(date[1]),Integer.parseInt(date[0]),time2);
+                     SweDate sd_forSR=new SweDate(Integer.parseInt(date[2]),Integer.parseInt(date[1]),Integer.parseInt(date[0])-1,time2);
+                    double[] geopos = {Float.valueOf(LATN.getText()),Float.valueOf(LONN.getText()),0};
                     //data+="<p>Details for "+det[0]+"";
                     data+="<center><table style='border: 1px solid black;' >";
                     data+="<tr><th>NAME</th><th>RAASI</th><th>ACTUAL DEGREES</th><th>DERIVED DEGREES</th></tr>";
+                    String mRasi = "";
                     for(int number:cm.planets){
                         //System.out.println(number);
                         String PLDET = cm.getPlanetPos(number,sd);
                         String[] arr = PLDET.split(":");
                         String raasi = cm.RaasiFinder(Integer.parseInt(arr[1].trim()));
-                        //PlacePlanet(raasi,arr[0]);
+                        if (number == 1){
+                            mRasi = raasi;
+                        }
+                        PlacePlanet(raasi,arr[0]);
                         data+="<tr><td>"+cm.plNams[number]+"</td><td>"+raasi+"</td><td>"+arr[1]+":"+arr[2]+":"+arr[3]+"</td><td>"+derive(Integer.parseInt(arr[1]))+":"+arr[2]+":"+arr[3]+"</td></tr>";
                     }
                     data+="</table><center>";
@@ -83,10 +99,15 @@ public class VirgoApp {
                     data += "<tr><td>NAME</td><td>"+calDet.Name()+"</td></tr>";
                 data += "<tr><td>Date and Time of Birth</td><td>"+calDet.DOB()+"</td></tr>";
                 data += "<tr><td>UTC</td><td>"+calDet.SRtime()+"</td></tr>";
-                data += "<tr><td>Sunrise</td><td>"+calDet.Name()+"</td></tr>";
-                data += "<tr><td>Sunset</td><td>"+calDet.Name()+"</td></tr>";
-                data += "<tr><td>NAME</td><td>"+calDet.Name()+"</td></tr>";
-                    data+="</table></center></body></html>";
+                data += "<tr><td>Sunrise</td><td>"+calDet.SunRise(sd_forSR,geopos)+"</td></tr>";
+                data += "<tr><td>Sunset</td><td>"+calDet.SunSet(sd,geopos)+"</td></tr>";
+                data += "<tr><td>Nakshatra</td><td>"+calDet.Name()+"</td></tr>";
+                data += "<tr><td>Lagna</td><td>"+mRasi+"</td></tr>";
+                data += "<tr><td>Yoga</td><td>"+mRasi+"</td></tr>";
+                data += "<tr><td>Thithi</td><td>"+mRasi+"</td></tr>";
+                data += "<tr><td>Ayamansa</td><td>"+mRasi+"</td></tr>";
+                data+="</table>";
+                data+="</center></body></html>";
 
 
 
@@ -117,6 +138,8 @@ public class VirgoApp {
         virgo.MMN.setValue(9);
         virgo.DDN.setValue(16);
         virgo.MINN.setValue(55);
+        virgo.LATN.setText("82.2475");
+        virgo.LONN.setText("16.9891");
         Frame.setVisible(true);
         virgo.ChartTableEditor.setContentType("text/html");
         String data = "<html>";
@@ -124,7 +147,57 @@ public class VirgoApp {
         data+="</html>";
         virgo.ChartTableEditor.setText(data);
     }
+    public void PlacePlanet(String raasi,String planet){
+        if (raasi.equals("Aries")){
+            Aries.append(planet);
+            Aries.append("\n");
+        }
+        else if(raasi.equals("Tarus")){
+            Tarus.append(planet);
+            Tarus.append("\n");
+        }
+        else if(raasi.equals("Gemini")){
+            Gemini.append(planet);
+            Gemini.append("\n");
+        }
+        else if(raasi.equals("Cancer")){
+            Cancer.append(planet);
+            Cancer.append("\n");
+        }
+        else if(raasi.equals("Leo")){
+            Leo.append(planet);
+            Leo.append("\n");
+        }
+        else if(raasi.equals("Virgo")){
+            Virgo.append(planet);
+            Virgo.append("\n");
+        }
+        else if(raasi.equals("Libra")){
+            Libra.append(planet);
+            Libra.append("\n");
+        }
+        else if(raasi.equals("Scorpio")){
+            Scorpio.append(planet);
+            Scorpio.append("\n");
+        }
+        else if(raasi.equals("Saggittarius")){
+            Saggittarius.append(planet);
+            Saggittarius.append("\n");
+        }
+        else if(raasi.equals("Capricorn")){
+            Capricorn.append(planet);
+            Capricorn.append("\n");
+        }
+        else if(raasi.equals("Aquarius")){
+            Aquarius.append(planet);
+            Aquarius.append("\n");
+        }
+        else if(raasi.equals("Pisces")){
+            Pisces.append(planet);
+            Pisces.append("\n");
+        }
 
+    }
     private void createUIComponents() {
         // TODO: place custom component creation code here
     }

@@ -8,6 +8,8 @@ import java.util.TimeZone;
 import swisseph.SweConst;
 import swisseph.SweDate;
 import swisseph.SwissEph;
+import swisseph.*;
+import swisseph.SwissephException;
 
 public class CalculateDetails {
     int YYYY,MM,DD,HH,MIN,SS,LAT,LON;
@@ -54,10 +56,28 @@ public class CalculateDetails {
                          // invalid input
         }return "";
     }
-    private String SunRandS(){
-        return "IST";
+    public String SunRise(SweDate sd,double[] geopos){
+        DblObj ret = new DblObj();
+        StringBuffer serr =new StringBuffer("");
+        SwissEph sw = new SwissEph();
+        sw.swe_rise_trans(sd.getJulDay(),SweConst.SE_SUN,null,SweConst.SEFLG_SWIEPH,SweConst.SE_CALC_RISE,geopos,0,0,ret,serr);
+
+        System.out.println(sd.getDate(ret.val));
+        return sd.getDate(ret.val).toString();
 
         //Need to write
     }
+    public String SunSet(SweDate sd,double[] geopos){
+        DblObj ret = new DblObj();
+        StringBuffer serr =new StringBuffer("");
+        SwissEph sw = new SwissEph();
+        sw.swe_rise_trans(sd.getJulDay(),SweConst.SE_SUN,null,SweConst.SEFLG_SWIEPH,SweConst.SE_CALC_SET,geopos,0,0,ret,serr);
+
+        System.out.println(sd.getDate(ret.val));
+        return sd.getDate(ret.val).toString();
+
+        //Need to write
+    }
+
 
 }
