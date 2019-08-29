@@ -78,6 +78,9 @@ public class VirgoApp {
                     data+="<center><table style='border: 1px solid black;' >";
                     data+="<tr><th>NAME</th><th>RAASI</th><th>ACTUAL DEGREES</th><th>DERIVED DEGREES</th></tr>";
                     String mRasi = "";
+                    double SunLon = Double.parseDouble(cm.getPlanetPos(0,sd).split(":")[1]);
+                double MoonLon = Double.parseDouble(cm.getPlanetPos(1,sd).split(":")[1]);
+                double diff = calDet.getDiff(SunLon,MoonLon);
                     for(int number:cm.planets){
                         //System.out.println(number);
                         String PLDET = cm.getPlanetPos(number,sd);
@@ -86,7 +89,7 @@ public class VirgoApp {
                         if (number == 1){
                             mRasi = raasi;
                         }
-                        PlacePlanet(raasi,arr[0]);
+                        PlacePlanet(raasi,cm.planetShortNames[number]+ " " +derive(Integer.parseInt(arr[1]))+":"+arr[2]+":"+arr[3]);
                         data+="<tr><td>"+cm.plNams[number]+"</td><td>"+raasi+"</td><td>"+arr[1]+":"+arr[2]+":"+arr[3]+"</td><td>"+derive(Integer.parseInt(arr[1]))+":"+arr[2]+":"+arr[3]+"</td></tr>";
                     }
                     data+="</table><center>";
@@ -101,10 +104,11 @@ public class VirgoApp {
                 data += "<tr><td>UTC</td><td>"+calDet.SRtime()+"</td></tr>";
                 data += "<tr><td>Sunrise</td><td>"+calDet.SunRise(sd_forSR,geopos)+"</td></tr>";
                 data += "<tr><td>Sunset</td><td>"+calDet.SunSet(sd,geopos)+"</td></tr>";
-                data += "<tr><td>Nakshatra</td><td>"+calDet.Name()+"</td></tr>";
-                data += "<tr><td>Lagna</td><td>"+mRasi+"</td></tr>";
-                data += "<tr><td>Yoga</td><td>"+mRasi+"</td></tr>";
-                data += "<tr><td>Thithi</td><td>"+mRasi+"</td></tr>";
+                data += "<tr><td>Nakshatra</td><td>"+calDet.calculateNakshatra(MoonLon)+"</td><td>"+calDet.calculatePada(MoonLon)+"</td></tr>";
+                data += "<tr><td>Lagna</td><td>"+calDet.calculateKarana(diff)+"</td></tr>";
+                data += "<tr><td>Yoga</td><td>"+calDet.calculateYoga(diff)+"</td></tr>";
+                data += "<tr><td>Thithi</td><td>"+calDet.calculateTithi(diff)+"</td></tr>";
+                data += "<tr><td>Karana</td><td>"+calDet.calculateKarana(diff)+"</td></tr>";
                 data += "<tr><td>Ayamansa</td><td>"+mRasi+"</td></tr>";
                 data+="</table>";
                 data+="</center></body></html>";

@@ -14,6 +14,8 @@ import swisseph.SwissephException;
 public class CalculateDetails {
     int YYYY,MM,DD,HH,MIN,SS,LAT,LON;
     String NAME;
+    public static final String nakshatra[] = {"Ashwini", "Bharani", "Krittika", "Rohini", "Mrigshira", "Ardra", "Punarvasu", "Pushya", "Ashlesha", "Magha", "Purva Phalguni", "Uttara Phalguni", "Hasta", "Chitra", "Swati", "Vishakha", "Anuradha", "Jyestha", "Mula", "Purva Ashadha", "Uttara Ashadha", "Shravana", "Dhanishta", "Satabhisha", "Purva Bhadrapada", "Uttara Bhadrapada", "Revati", "Ashwini"};
+
     void CalculateDetails(String NAME,String YYYY,String MM,String DD,String HH,String MIN,String SS,String LAT,String LON){
         this.YYYY = Integer.parseInt(YYYY);
         this.MM = Integer.parseInt(MM);
@@ -43,6 +45,7 @@ public class CalculateDetails {
         return "IST";
         //Need to write
     }
+    private static String yoga, tithi, karana;
     public String SRtime(){
         String input = DD+"-"+MM+"-"+YYYY+" "+HH+":"+MIN+":"+SS;//"31-12-1998 23:37:50";
         DateFormat dfNy = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.ROOT);
@@ -78,7 +81,7 @@ public class CalculateDetails {
 
         //Need to write
     }
-    private static double getDiff(double sunLon, double moonLon) {
+    public static double getDiff(double sunLon, double moonLon) {
         double diff = moonLon - sunLon;
         if (diff < 0)
             diff = diff + 360;
@@ -243,14 +246,14 @@ public class CalculateDetails {
     }
 
 
-    public static int calculateNakshatra(double moonlog)
+    public static String calculateNakshatra(double moonlog)
     {
 
-        int i = (int) (moonlog / (13.333333)-1);
+        int i = (int) (moonlog / (13.333333));
         if(i<0){
             i=0;
         }
-        return i;
+        return nakshatra[i];
     }
 
     public static String calculatePada (double lon)//returns nakshatra pada

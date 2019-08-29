@@ -13,7 +13,13 @@ public class ChartMaker {
             SweConst.SE_VENUS,
             SweConst.SE_SATURN,
             SweConst.SE_MEAN_NODE };	// Some systems prefer SE_MEAN_NODE
-    String plNams[] = {"Sun","Moon","Mars","Mercury","Jupiter","Venus","Saturn","","","","Rahu"};
+    //String plNams[] = {"Sun","Moon","Mars","Mercury","Jupiter","Venus","Saturn","","","","Rahu"};
+    public static final String planetShortNames[] = {"SU", "MO", "ME", "VE", "MA", "JU", "SA", "UR", "NE", "PL", "RA", "KE"};
+    /**
+     *  Description of the Field
+     */
+    public static final String plNams[] = {"Sun", "Moon", "Mercury", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto", "Rahu", "Ketu"};
+
     public String plNams_tel[] = {"సన్", "మూన్", "మార్స్", "మెర్క్యురీ", "బృహస్పతి", "శుక్రుడు", "సాటర్న్", "", "", "", "రాహు"};
     int flags = SweConst.SEFLG_SWIEPH | SweConst.SEFLG_SPEED  | SweConst.SEFLG_SIDEREAL;
     //boolean retrograde = false;
