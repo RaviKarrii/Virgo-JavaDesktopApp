@@ -117,7 +117,7 @@ public class VirgoApp {
     }
     public int derive(int a){
         int b = 30;
-        while (b < a){
+        while (b <= a){
             a = a-b;
         }
         return a;
