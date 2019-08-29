@@ -81,6 +81,7 @@ public class VirgoApp {
                     double SunLon = Double.parseDouble(cm.getPlanetPos(0,sd).split(":")[1]);
                 double MoonLon = Double.parseDouble(cm.getPlanetPos(1,sd).split(":")[1]);
                 double diff = calDet.getDiff(SunLon,MoonLon);
+                cleardata();
                     for(int number:cm.planets){
                         //System.out.println(number);
                         String PLDET = cm.getPlanetPos(number,sd);
@@ -150,6 +151,20 @@ public class VirgoApp {
         data+="<center>Please Press Generate Button<center>";
         data+="</html>";
         virgo.ChartTableEditor.setText(data);
+    }
+    public void cleardata(){
+        Pisces.setText("");
+        Aries.setText("");
+                Tarus.setText("");
+        Gemini.setText("");
+                Saggittarius.setText("");
+        Aquarius.setText("");
+                Capricorn.setText("");
+        Scorpio.setText("");
+                Libra.setText("");
+        Virgo.setText("");
+                Cancer.setText("");
+        Leo.setText("");
     }
     public void PlacePlanet(String raasi,String planet){
         if (raasi.equals("Aries")){
