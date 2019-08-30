@@ -93,6 +93,19 @@ public class ChartMaker {
         System.out.println(plNams[planet]+" - " + dms(res[0]) );
         return plNams[planet]+":" + dms(res[0]);
     }
+
+    public String getAscendant(SweDate sd, double birthLong, double birthLat){
+        int HOUSE_SYSTEM = (int)'P';
+        int HOUSE_FLAG = SweConst.SEFLG_SIDEREAL;
+        SwissEph sw = new SwissEph();
+        double[] ac = new double[10];
+        double[] positions = new double[13];
+
+        sw.swe_houses(sd.getJulDay(), HOUSE_FLAG, birthLat, birthLong, HOUSE_SYSTEM,
+                positions, ac);
+
+        return (String.valueOf(positions[1]));
+    }
     public static double decimal( int deg, int min, int sec ) {
 
         double temp = ( ( ( deg * 60 ) + min ) * 60 ) + sec;

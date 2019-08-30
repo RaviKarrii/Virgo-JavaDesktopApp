@@ -241,7 +241,10 @@ public class CalculateDetails {
                         "27. Vaidhriti" };
         return yogaNames[yo];
     }
-    public static double calculateAyanamsa(SwissEph sw, double tjd_ut) {
+    public static double calculateAyanamsa(double tjd_ut) {
+
+
+        SwissEph sw = new SwissEph();
         return sw.swe_get_ayanamsa_ut(tjd_ut);
     }
 

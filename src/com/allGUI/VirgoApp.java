@@ -15,11 +15,9 @@ public class VirgoApp {
     private JPanel Dasa;
     private JPanel Data;
     private JLabel datetimenow;
-    private JPanel Compatibility;
     private JPanel About;
     private JTabbedPane TPforINp;
     private JPanel Horoscope;
-    private JPanel CompIN;
     private JButton ChartBut;
     private JButton Generate;
     public JEditorPane ChartTableEditor;
@@ -110,13 +108,15 @@ public class VirgoApp {
                 data += "<tr><td>Yoga</td><td>"+calDet.calculateYoga(diff)+"</td></tr>";
                 data += "<tr><td>Thithi</td><td>"+calDet.calculateTithi(diff)+"</td></tr>";
                 data += "<tr><td>Karana</td><td>"+calDet.calculateKarana(diff)+"</td></tr>";
-                data += "<tr><td>Ayamansa</td><td>"+mRasi+"</td></tr>";
+                data += "<tr><td>Ascendant</td><td>"+cm.RaasiFinder((int)Float.parseFloat(cm.getAscendant(sd,Double.parseDouble(LATN.getText()),Double.parseDouble(LONN.getText()))))+"</td></tr>";
+                data += "<tr><td>Ayamansa</td><td>"+calDet.calculateAyanamsa(sd_forSR.getJulDay())+"</td></tr>";
                 data+="</table>";
                 data+="</center></body></html>";
 
 
 
                     DetailsEditor.setText(data);
+                tabbedPane1.setSelectedIndex(1);
                 }
             });
     }
