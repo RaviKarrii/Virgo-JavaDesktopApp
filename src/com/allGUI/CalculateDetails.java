@@ -56,7 +56,7 @@ public class CalculateDetails {
         try {
             return dfUtc.format(dfNy.parse(input));
         } catch (Exception e) {
-                         // invalid input
+
         }return "";
     }
     public String SunRise(SweDate sd,double[] geopos){
